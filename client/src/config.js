@@ -1,3 +1,4 @@
+// export const API = "http://localhost:8000/api";
 export const API = "https://casa-byte.vercel.app/api";
 export const FIREBASE_API_KEY = "AIzaSyDDK5O3i0wU-Ra54BEpxIJWlzhX_XV5kgU";
 export const FIREBASE_CONFIG = {

@@ -4,11 +4,12 @@ import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.js";
 import adRoutes from "./routes/ad.js";
+import { DATABASE } from "./config.js";
 
 const app = express();
 
 //db
-mongoose.connect(process.env.DATABASE)
+mongoose.connect(DATABASE)
     .then(()=> console.log("db_connected"))
     .catch((err)=> console.log(err));
 
@@ -23,4 +24,5 @@ app.use("/api", adRoutes);
 
 app.listen(8000, () => {
     console.log("server started");
+    console.log(process.env.DATABASE);
 });

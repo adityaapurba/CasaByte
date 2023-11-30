@@ -4,6 +4,7 @@ import Ad from "../models/ad.js";
 import jwt from "jsonwebtoken";
 import { nanoid } from "nanoid";
 import validator from "email-validator";
+import { JWT_SECRET } from "../config.js";
 
 export const welcome = (req, res) => {
   res.json({
@@ -12,10 +13,10 @@ export const welcome = (req, res) => {
 };
 
 const tokenAndUserResponse = (req, res, user) => {
-  const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ _id: user._id },JWT_SECRET, {
     expiresIn: "1h",
   });
-  const refreshToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+  const refreshToken = jwt.sign({ _id: user._id },JWT_SECRET, {
     expiresIn: "7d",
   });
 
@@ -83,7 +84,7 @@ export const refreshToken = async (req, res) => {
   try {
     const { _id } = jwt.verify(
       req.headers.refresh_token,
-      process.env.JWT_SECRET
+      JWT_SECRET
     );
 
     const user = await User.findById(_id);
