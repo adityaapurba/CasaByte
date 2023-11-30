@@ -2,14 +2,13 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
-import { DATABASE } from "./config.js";
 import authRoutes from "./routes/auth.js";
 import adRoutes from "./routes/ad.js";
 
 const app = express();
 
 //db
-mongoose.connect(DATABASE)
+mongoose.connect(process.env.DATABASE)
     .then(()=> console.log("db_connected"))
     .catch((err)=> console.log(err));
 
