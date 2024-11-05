@@ -7,7 +7,7 @@ export default function Footer() {
       <i className="social-icon fa-brands fa-instagram"></i>
       <i className="social-icon fa-solid fa-envelope"></i>
       <p className="mt-3">
-        &copy; {new Date().getFullYear()} All rights reserved - Aditya Apurba
+        &copy; {new Date().getFullYear()} All rights reserved -
       </p>
     </div>
   );
